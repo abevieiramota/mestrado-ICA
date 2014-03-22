@@ -1,0 +1,1 @@
+* - utilizar a fórmula do arquivo dermatologia.pdf, atentando para que o resultado deve ser um vetor do tamanho das classes e a classe resultante deve ser a de posição com maior valor
