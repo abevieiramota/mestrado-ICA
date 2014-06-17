@@ -1,0 +1,32 @@
+function S=selecao_torneio(P,Fn);
+% selecao de individuos pelo metodo do torneio
+% De cada par de indivíduos selecionados aleatoriamente
+% escolhe-se aquele com maior valor de aptidao.
+%
+% Parametros de Entrada:
+%    P - Matriz de cromossomos
+%    Fn: Valores de aptidao normalizados
+%    
+%
+% Data: 20/08/2009
+% Autor: Guilherme Barreto
+
+n=size(P);
+
+S=[];
+for i=1:n(1)/2,
+    % Seleciona 1o. individuo do par
+    I=randperm(n(1));  % Numeros inteiros de 1 a n(1) em ordem aleatoria
+    I1=I(1); I2=I(2); % Pega dois primeiros indices
+    
+    [aux I1max]=max([Fn(I1) Fn(I2)]); % Seleciona individuo de maior fitness
+
+    % Seleciona 2o. individuo do par
+    I=randperm(n(1));  % Numeros inteiros de 1 a n(1) em ordem aleatoria
+    I1=I(1); I2=I(2);  % Pega dois primeiros indices
+    
+    [aux I2max]=max([Fn(I1) Fn(I2)]); % Seleciona individuo de maior fitness
+    
+    S=[S;I1max I2max];
+end
+    
